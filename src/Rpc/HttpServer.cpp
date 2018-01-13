@@ -62,7 +62,8 @@ void HttpServer::acceptLoop() {
     for (;;) {
       HttpRequest req;
       HttpResponse resp;
-
+      resp.addHeader("Access-Control-Allow-Origin", "*");
+      
       parser.receiveRequest(stream, req);
       processRequest(req, resp);
 
